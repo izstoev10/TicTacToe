@@ -15,7 +15,7 @@ namespace TicTacToe
         public NewGame game;
         public CheckWinner winner;
         public ButtonAction onClick;
-        
+
         //Initiate NewGame class
 
         public MainWindow()

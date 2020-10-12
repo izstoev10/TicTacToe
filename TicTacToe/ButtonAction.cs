@@ -11,6 +11,7 @@ namespace TicTacToe
     {
         public NewGame game;
         public CheckWinner winner;
+        public ButtonAction onClick;
 
         //Handles the button click event 
         public void buttonAction(object sender, Grid Container, NewGame game)
@@ -45,19 +46,6 @@ namespace TicTacToe
 
             //Toggle players turns
             this.game.player1Turn ^= true;
-
-            //Debug 
-            System.Diagnostics.Debug.WriteLine("");
-            System.Diagnostics.Debug.WriteLine("-------------");
-            for (int i = 0; i < this.game.result.GetLength(0); i++)
-            {
-                for (int j = 0; j < this.game.result.GetLength(0); j++)
-                {
-                    System.Diagnostics.Debug.Write(this.game.result[i, j]);
-                    System.Diagnostics.Debug.Write(this.game.player1Turn);
-                }
-                System.Diagnostics.Debug.WriteLine("");
-            }
         }
     }
 }

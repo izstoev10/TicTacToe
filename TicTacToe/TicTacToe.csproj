@@ -65,6 +65,7 @@
     </Compile>
     <Compile Include="CheckWinner.cs" />
     <Compile Include="ButtonAction.cs" />
+    <Compile Include="Debugger.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
