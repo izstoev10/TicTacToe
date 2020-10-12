@@ -19,7 +19,7 @@ namespace TicTacToe
             int arrLength = this.game.result.GetLength(0);
 
             int winnerByColsX, winnerByColsO, winnerByDiagO, winnerByDiag2O, winnerByDiagX,
-                winnerByDiag2X, winnerByRowsX, winnerByRowsO, currentCellRow, currentCellCol;
+                winnerByDiag2X, winnerByRowsX, winnerByRowsO, currentCellRow, currentCellCol, firstCorner, secondCorner;
 
             winnerByDiag2O = winnerByDiag2X = winnerByDiagO = winnerByDiagX = 0;
 
@@ -34,14 +34,16 @@ namespace TicTacToe
                 {
                     currentCellRow = this.game.result[row, col];
                     currentCellCol = this.game.result[col, row];
+                    firstCorner = this.game.result[0, arrLength - 1];
+                    secondCorner = this.game.result[arrLength - 1, 0];
 
                     //Check diag where i = j
                     winnerByDiagO += (row == col && currentCellRow == (int)MarkType.Circle) ? 1 : 0;
                     winnerByDiagX += (row == col && currentCellRow == (int)MarkType.Cross) ? 1 : 0;
 
                     //Check reverse diag
-                    winnerByDiag2O += (currentCellCol == currentCellRow && currentCellRow == (int)MarkType.Circle) ? 1 : 0;
-                    winnerByDiag2X += (currentCellCol == currentCellRow && currentCellRow == (int)MarkType.Cross) ? 1 : 0;
+                    winnerByDiag2O += ((firstCorner == secondCorner) && (row + col == arrLength - 1) && currentCellRow == (int)MarkType.Circle) ? 1 : 0;
+                    winnerByDiag2X += ((firstCorner == secondCorner) && (row + col == arrLength - 1) && currentCellRow == (int)MarkType.Cross) ? 1 : 0;
 
                     //Check horizontal lines
                     winnerByRowsO += (currentCellRow == (int)MarkType.Circle) ? 1 : 0;
