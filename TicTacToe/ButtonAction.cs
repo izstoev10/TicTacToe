@@ -13,10 +13,9 @@ namespace TicTacToe
         public CheckWinner winner;
 
         //Handles the button click event 
-        public void Button_Click(object sender, Grid Container)
+        public void buttonAction(object sender, Grid Container, NewGame game)
         {
-            this.game = new NewGame();
-
+            this.game = game;
             //Start a new game on the first click after a finished game 
             if (this.game.isGameEnded)
             {

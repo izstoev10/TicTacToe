@@ -12,7 +12,6 @@ namespace TicTacToe
         public bool player1Turn;
         public bool isGameEnded;
 
-
         public MarkType[] results { get; private set; }
 
         public int[,] result = new int[3, 3];
@@ -26,7 +25,6 @@ namespace TicTacToe
                     result[i, j] = (int)MarkType.Free;
                 }
             }
-
 
             //Set current player to player 1
             this.player1Turn = true;

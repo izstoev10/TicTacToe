@@ -13,7 +13,7 @@ namespace TicTacToe
 
         public void CheckForWinner(NewGame game)
         {
-            this.game = new NewGame();
+            this.game = game;
 
             //Determine the size of the table
             int arrLength = this.game.result.GetLength(0);
