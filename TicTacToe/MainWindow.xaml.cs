@@ -7,32 +7,38 @@ using System.Windows.Media;
 
 namespace TicTacToe
 {
-    /// <summary>
-    /// Interaction logic f                                                                                                                   or MainWindow.xaml
-    /// </summary>
+    public interface IGame
+    {
+        bool isGameFinished { get; }
+
+        void NewGame(Grid Container);
+
+        void MakeMove(Grid Container);
+    }
+
     public partial class MainWindow : Window
     {
-        public NewGame game;
-        public CheckWinner winner;
-        public ButtonAction onClick;
-
-        //Initiate NewGame class
+        public Game game;
 
         public MainWindow()
         {
-           InitializeComponent();
+            InitializeComponent();
 
-            this.game = new NewGame();
-            this.game.StartNewGame(Container);
+            this.game = new Game();
+            this.game.NewGame(Container);
         }
 
         public void Button_Click(object sender, RoutedEventArgs e)
         {
-            this.onClick = new ButtonAction();
-            this.onClick.buttonAction(sender, Container, game);
+            this.game.setSender((Button)sender);
+            this.game.MakeMove(Container);
 
-            this.winner = new CheckWinner();
-            this.winner.CheckForWinner(game);
+            //If there is a winner - show message box
+            if(game.isGameFinished == true)
+            {
+                MessageBox.Show("You have won");
+            }
+
         }
     }
 }
